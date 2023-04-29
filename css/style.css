@@ -102,3 +102,13 @@
    max-width: 500px;
    margin: 0 auto;
  }
+
+
+ /* Mobile */
+
+ @media(max-width: 480px){
+      #home-link {
+         display: none;
+      }
+
+ }
