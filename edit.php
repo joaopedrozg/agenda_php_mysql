@@ -24,7 +24,7 @@
             <textarea type="text" name="observations" id="observations" class="form-control" placeholder="Insira as observações" rows="3"  > <?= $contact['observation'] ?>  </textarea>
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="submit" class="btn btn-primary">Atualizar</button>
 
     </form>
 
