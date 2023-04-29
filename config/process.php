@@ -38,9 +38,41 @@
                 echo "Erro: $error";
 
             }
+        } else if($data["type"] === "edit"){
+
+            print_r($data); 
+           $name = $data["name"];
+           $phone = $data["phone"];
+           $observations = $data["observations"];
+           $id = $data["id"];
+
+            $query = "UPDATE contacts
+             SET name = :name, phone = :phone, observation =:observations
+             WHERE id = :id";
+
+            $stmt = $conn->prepare($query);
+
+            $stmt->bindParam(":name", $name);
+            $stmt->bindParam(":phone", $phone);
+            $stmt->bindParam(":observations", $observations);
+            $stmt->bindParam(":id", $id);
+          
+            try{
+
+                $stmt->execute();
+                $_SESSION["msg"] = "Contato Alterado com sucesso!";
+            } catch (PDOException $e){
+
+                $error = $e->getMessage();
+                echo "Erro: $error";
+
+            }
+
+
         }
 
-        header("Location:" . $BASE_URL . "../index.php");
+        // Redirect home
+       header("Location:" . $BASE_URL . "../index.php");
 
     }else {
 
